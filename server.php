@@ -9,6 +9,8 @@ class server{
 
     function getStudentRecord($id)
     {
+
+        //can connect to the database and fetch some data
         return 'Sam';
 
     }
@@ -16,7 +18,7 @@ class server{
 
 
 //define parameters
-$params = array('uri'=>'http://127.0.0.1:8080/server.php');
+$params = array('uri'=>'http://127.0.0.1:8081/server.php');
 
 //create a new instance of SOAP server
 $server = new SoapServer(NULL, $params);

@@ -7,7 +7,7 @@ class client{
         //location is wherwe the script is located
         //uri is loaded from a urn
         //trace is for debugging
-        $params = array('location'=>'http://127.0.0.1:8080/server.php', 'uri'=>'urn://127.0.0.1:8080/server.php', 'trace'=>1);
+        $params = array('location'=>'http://127.0.0.1:8081/server.php', 'uri'=>'urn://127.0.0.1:8081/server.php', 'trace'=>1);
 
         $this->instance = new SoapClient(NULL, $params);
     }
