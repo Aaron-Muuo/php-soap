@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<wsdl:definitions 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:s="http://www.w3.org/2001/XMLSchema" 
+    targetNamespace="http://www.darkerwhite.com/" 
+    xmlns:tns="http://www.darkerwhite.com/" 
+    name="MyExampleWebServiceAccessPoint" 
+>
+
+<wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.darkerwhite.com/">
+        <s:element name="ChooseColourRequest">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Name" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="FavColour" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="FavNumber" type="s:int" />
+            </s:sequence></s:complexType>
+        </s:element>
+        <s:element name="ChooseColourResponse">
+            <s:complexType><s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+            </s:sequence></s:complexType>
+        </s:element>
+    </s:schema>
+</wsdl:types>
+
+<wsdl:message name="ChooseColourRequest">
+    <wsdl:part name="parameters" element="tns:ChooseColourRequest" />
+</wsdl:message>
+<wsdl:message name="ChooseColourResponse">
+    <wsdl:part name="parameters" element="tns:ChooseColourResponse" />
+</wsdl:message>
+
+<wsdl:portType name="ChooseColourPortType">
+    <wsdl:operation name="ChooseColour">
+        <wsdl:input message="tns:ChooseColourRequest" />
+        <wsdl:output message="tns:ChooseColourResponse" />
+    </wsdl:operation>
+</wsdl:portType>
+
+<wsdl:binding name="ChooseColourBinding" type="tns:ChooseColourPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChooseColour">
+        <soap:operation soapAction="http://localhost/soap-service.php#ChooseColour" style="document" />
+        <wsdl:input><soap:body use="literal" /></wsdl:input>
+        <wsdl:output><soap:body use="literal" /></wsdl:output>
+        <wsdl:documentation>Send a favourite colour and number to a text file.</wsdl:documentation>
+    </wsdl:operation>
+</wsdl:binding>
+
+<wsdl:service name="MyExampleWebServiceAccessPoint">
+    <wsdl:port name="ChooseColourPort" binding="tns:ChooseColourBinding">
+        <soap:address location="http://localhost/soap-service.php" />
+    </wsdl:port>
+</wsdl:service>
+
+</wsdl:definitions>

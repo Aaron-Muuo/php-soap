@@ -1,4 +1,4 @@
-# PHP SOAP
+# PHP SOAP API
 
 Soap API in php
 
@@ -32,5 +32,10 @@ php -S 127.0.0.1:8081
 
 Once the server is up, run client script __127.0.0.1:8080/client.php__
 
+## Next up - Authentication
+
+The authenticate function in server.php will authenticate the user based on username and password provided. CLient has to pass credentials from their end.
 
 ## Next up - integrating WSDL
+
+Ths subproject wsdl+generator and wsdl_soap contains soap server with wsdl functionalities

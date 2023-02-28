@@ -2,6 +2,15 @@
 
 class server{
 
+
+    public static function authenticate($header_params){
+        if($header_params->username == 'Aaron' && $header_params->password == 'root'){
+            return true;
+        }else{
+            throw new SoapFault('Wrong user/pass', 401);
+        }
+    }
+
     function __construct()
     {
         
@@ -11,6 +20,8 @@ class server{
     {
 
         //can connect to the database and fetch some data
+        //do some operations
+        //retuen result
         return 'Sam';
 
     }
