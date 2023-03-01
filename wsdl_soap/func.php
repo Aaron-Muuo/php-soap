@@ -1,23 +1,30 @@
 <?php
 
+// function getName($name)
+// {
+// 	$conn=mysqli_connect("localhost","root","","api_db");
+// 	if (mysqli_connect_error()) {
+// 		echo "Failed to connect to mysql:".mysqli_connect_error();
+// 		die();
+// 	}
+// 	$result= mysqli_query($conn, "SELECT * FROM api_table WHERE name='$name' ");
+// 	$retstr="";
+// 	if (mysqli_num_rows($result)>0) {
+// 		while ($row=mysqli_fetch_array($result)) {
+// 			$response[]= $row;
+// 		}
+// 		return json_encode($response);
+// 	}
+// 	else{
+// 		return "No data";
+// 	}
+// }
 function getName($name)
 {
-	$conn=mysqli_connect("localhost","root","","api_db");
-	if (mysqli_connect_error()) {
-		echo "Failed to connect to mysql:".mysqli_connect_error();
-		die();
-	}
-	$result= mysqli_query($conn, "SELECT * FROM api_table WHERE name='$name' ");
-	$retstr="";
-	if (mysqli_num_rows($result)>0) {
-		while ($row=mysqli_fetch_array($result)) {
-			$response[]= $row;
-		}
-		return json_encode($response);
-	}
-	else{
-		return "No data";
-	}
+        $response=["name"=>"aaron"];
+		// return json_encode($response);
+		return $name;
+
 }
 function adduser($name,$email,$phone){
 	

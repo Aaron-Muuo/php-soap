@@ -31,7 +31,7 @@ $functions = array();
                                                 array("name" => "FavColour", "type" => "string"),
                                                 array("name" => "FavNumber", "type" => "int")),
                          "outputParams" => array(array("name" => "Success", "type" => "boolean")),
-                         "soapAddress" => "http://localhost/soap-service.php"
+                         "soapAddress" => "http://127.0.0.1:8081/soap-service.php"
                          );
 
 // ----------------------------------------------------------------------------

@@ -1,0 +1,75 @@
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:Demo" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:Demo">
+<types>
+<xsd:schema targetNamespace="urn:Demo">
+<xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+<xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+</xsd:schema>
+</types>
+<message name="getName">
+<part name="name" type="xsd:string"/>
+</message>
+<message name="getNameResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="adduser">
+<part name="name" type="xsd:string"/>
+</message>
+<message name="adduserResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<message name="view_users">
+<part name="name" type="xsd:string"/>
+</message>
+<message name="view_usersResponse">
+<part name="return" type="xsd:string"/>
+</message>
+<portType name="DemoPortType">
+<operation name="getName">
+<input message="tns:getName"/>
+<output message="tns:getNameResponse"/>
+</operation>
+<operation name="adduser">
+<input message="tns:adduser"/>
+<output message="tns:adduserResponse"/>
+</operation>
+<operation name="view_users">
+<input message="tns:view_users"/>
+<output message="tns:view_usersResponse"/>
+</operation>
+</portType>
+<binding name="DemoBinding" type="tns:DemoPortType">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="getName">
+<soap:operation soapAction="http://localhost/API_DEMO/services.php/getName" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="adduser">
+<soap:operation soapAction="http://localhost/API_DEMO/services.php/adduser" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+<operation name="view_users">
+<soap:operation soapAction="http://localhost/API_DEMO/services.php/view_users" style="rpc"/>
+<input>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</input>
+<output>
+<soap:body use="encoded" namespace="" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output>
+</operation>
+</binding>
+<service name="Demo">
+<port name="DemoPort" binding="tns:DemoBinding">
+<soap:address location="http://localhost/API_DEMO/services.php"/>
+</port>
+</service>
+</definitions>
